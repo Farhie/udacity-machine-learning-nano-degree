@@ -1,4 +1,5 @@
-# udacity-machine-learning-nano-degree
+# Udacity Machine Learning Nanodegree
+
 I have been using this repository to keep track of all exercises within Udacity's Machine Learning Nanodegree
 Program. See here: https://www.udacity.com/course/machine-learning-engineer-nanodegree--nd009
 
