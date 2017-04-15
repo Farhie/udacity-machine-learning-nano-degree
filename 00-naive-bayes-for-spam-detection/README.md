@@ -16,7 +16,7 @@ Being able to identify spam messages is a binary classification problem as messa
 into the model, that it can learn from, to make future predictions.
 
 
-Step 0: Introduction to the Naive Bayes Theorem
+### Step 0: Introduction to the Naive Bayes Theorem ###
 Bayes theorem is one of the earliest probabilistic inference algorithms developed by Reverend Bayes (which he used to try and infer the existence of God no less) and still performs extremely well for certain use cases.
 It's best to understand this theorem using an example. Let's say you are a member of the Secret Service and you have been deployed to protect the Democratic presidential nominee during one of his/her campaign speeches. Being a public event that is open to all, your job is not easy and you have to be on the constant lookout for threats. So one place to start is to put a certain threat-factor for each person. So based on the features of an individual, like the age, sex, and other smaller factors like is the person carrying a bag?, does the person look nervous? etc. you can make a judgement call as to if that person is viable threat.
 If an individual ticks all the boxes up to a level where it crosses a threshold of doubt in your mind, you can take action and remove that person from the vicinity. The Bayes theorem works in the same way as we are computing the probability of an event(a person being a threat) based on the probabilities of certain related events(age, sex, presence of bag or not, nervousness etc. of the person).
@@ -29,18 +29,13 @@ In short, the Bayes theorem calculates the probability of a certain event happen
 
 We will be using a 'https://archive.ics.uci.edu/ml/datasets/SMS+Spam+Collection' dataset from the UCI Machine Learning repository which has a very good collection of datasets for experimental research purposes.
 
-
- ** Here's a preview of the data: **
-
-<img src="images/dqnb.png" height="1242" width="1242">
-
 The columns in the data set are currently not named and as you can see, there are 2 columns.
 
 The first column takes two values, 'ham' which signifies that the message is not spam, and 'spam' which signifies that the message is spam.
 
 The second column is the text content of the SMS message that is being classified.
 
->** Instructions: **
+> Instructions:
 * Import the dataset into a pandas dataframe using the read_table method. Because this is a tab separated dataset we
 will be using '\t' as the value for the 'sep' argument which specifies this format.
 * Also, rename the column names by specifying a list ['label, 'sms_message'] to the 'names' argument of read_table().
