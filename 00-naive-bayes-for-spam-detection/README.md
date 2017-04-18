@@ -47,7 +47,7 @@ will be using '\t' as the value for the 'sep' argument which specifies this form
 * Print the first five values of the dataframe with the new column names.
 
 
-Step 1.2: Data Preprocessing
+###  Step 1.2: Data Preprocessing ###
 
 Now that we have a basic understanding of what our dataset looks like, lets convert our labels to binary variables, 0 to represent 'ham'(i.e. not spam) and 1 to represent 'spam' for ease of computation.
 
@@ -61,3 +61,25 @@ Our model would still be able to make predictions if we left our labels as strin
 {'ham':0, 'spam':1} This maps the 'ham' value to 0 and the 'spam' value to 1.
 * Also, to get an idea of the size of the dataset we are dealing with, print out number of rows and columns using
 'shape'.
+
+
+### Step 2.1: Bag of words ###
+
+What we have here in our data set is a large collection of text data (5,572 rows of data). Most ML algorithms rely on numerical data to be fed into them as input, and email/sms messages are usually text heavy.
+
+Here we'd like to introduce the Bag of Words(BoW) concept which is a term used to specify the problems that have a 'bag of words' or a collection of text data that needs to be worked with. The basic idea of BoW is to take a piece of text and count the frequency of the words in that text. It is important to note that the BoW concept treats each word individually and the order in which the words occur does not matter.
+
+Using a process which we will go through now, we can covert a collection of documents to a matrix, with each document being a row and each word(token) being the column, and the corresponding (row,column) values being the frequency of occurrance of each word or token in that document.
+
+
+To handle this, we will be using sklearns sklearn.feature_extraction.text.CountVectorizer method which does the following:
+* It tokenizes the string(separates the string into individual words) and gives an integer ID to each token.
+* It counts the occurrance of each of those tokens.
+
+Please Note:
+
+* The CountVectorizer method automatically converts all tokenized words to their lower case form so that it does not treat words like 'He' and 'he' differently. It does this using the lowercase parameter which is by default set to True.
+* It also ignores all punctuation so that words followed by a punctuation mark (for example: 'hello!') are not treated differently than the same words not prefixed or suffixed by a punctuation mark (for example: 'hello'). It does this using the token_pattern parameter which has a default regular expression which selects tokens of 2 or more alphanumeric characters.
+* The third parameter to take note of is the stop_words parameter. Stop words refer to the most commonly used words in a language. They include words like 'am', 'an', 'and', 'the' etc. By setting this parameter value to english, CountVectorizer will automatically ignore all words(from our input text) that are found in the built in list of english stop words in scikit-learn. This is extremely helpful as stop words can skew our calculations when we are trying to find certain key words that are indicative of spam.
+* We will dive into the application of each of these into our model in a later step, but for now it is important to be aware of such preprocessing techniques available to us when dealing with textual data.
+
