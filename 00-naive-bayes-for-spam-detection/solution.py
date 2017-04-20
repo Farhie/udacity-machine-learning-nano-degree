@@ -15,5 +15,6 @@ print(sms_dataset.head(5))
 lowercase_sms_message_series = [sms_message.lower() for sms_message in sms_dataset.sms_message]
 punction_removed_from_messages = [sms_message.translate(str.maketrans('', '', string.punctuation))
                                   for sms_message in lowercase_sms_message_series]
+preprocessed_list_of_words = [sms_message.split(sep=' ') for sms_message in punction_removed_from_messages]
 
-print(punction_removed_from_messages)
+print(preprocessed_list_of_words)
