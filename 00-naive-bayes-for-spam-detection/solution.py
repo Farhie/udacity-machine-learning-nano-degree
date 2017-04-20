@@ -1,3 +1,5 @@
+import string
+
 import pandas
 
 sms_dataset = pandas.read_table(filepath_or_buffer='./SMSSpamCollection', sep='\t', names=['label', 'sms_message'])
@@ -10,6 +12,8 @@ print(sms_dataset.head(5))
 
 # Implementing bag of words from scratch
 
-sms_message_series = [sms_message.lower() for sms_message in sms_dataset.sms_message]
+lowercase_sms_message_series = [sms_message.lower() for sms_message in sms_dataset.sms_message]
+punction_removed_from_messages = [sms_message.translate(str.maketrans('', '', string.punctuation))
+                                  for sms_message in lowercase_sms_message_series]
 
-print(sms_message_series)
+print(punction_removed_from_messages)
